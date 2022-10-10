@@ -2,141 +2,111 @@ package steps;
 
 import java.util.concurrent.TimeUnit;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.PageFactory;
 
 import cucumber.api.java.Before;
-import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
-import pages.BasePage;
-import pages.DashboardPage;
-import pages.LoginPage;
+import pages.mainPage;
 
-
-public class LoginStepDefinition extends BasePage {
-	LoginPage loginPage;
+public class LoginStepDefinition {
 	WebDriver driver;
-	DashboardPage dashboardPage;
-	
+
+	mainPage mainpage;
 
 	@Before
 
 	public void setup() {
-		System.setProperty("webdriver.chrome.driver", "C:\\Users\\myada\\Selenium\\crm\\Driver\\chromedriver.exe");
+		System.setProperty("webdriver.chrome.driver",
+				"C:\\Users\\myada\\Selenium\\Cucumber\\Drivers\\chromedriver.exe");
 		driver = new ChromeDriver();
 		driver.manage().deleteAllCookies();
 		driver.manage().window().maximize();
-		driver.get("https://www.techfios.com/billing/?ng=admin/");
+		driver.get("https://techfios.com/test/101/");
 		driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
-		loginPage = PageFactory.initElements(driver, LoginPage.class);
 
 	}
 
-	@Given("^User is on techfios login page$")
-	public void user_is_on_techfios_login_page() {
+	@Given("^User is on techfios test page$")
+	public void user_is_on_techfios_test_page() {
 
 	}
 
-	@When("^User enters username as \"([^\"]*)\"$")
-	public void User_enters_username(String username) {
+	@Given("^Set SkyBlue Background button exists$") // to validate the button exist or not
+	public void buttons_exist() {
 
-		loginPage.insertUserName(username);
-
-	}
-
-	@When("^User enters password as \"([^\"]*)\"$")
-
-	public void Userenterspasswordas(String password) {
-		loginPage.insertPassword(password);
-
-	}
-
-	@And("^User clicks on signin button$")
-
-	public void user_clicks_on_signin_button() {
-		loginPage.signinButton();
-
-	}
-
-	@Then("^User land on Dashboard page$")
-	public void User_should_land_on_Dashboard_page() {
-		dashboardPage = PageFactory.initElements(driver, DashboardPage.class);
-		dashboardPage.ValidateDashboard();
-
-	}
-
-	@And("^User shoulld clicks on bankCash$")
-	public void User_clicks_on_bank_Cash() {
-
-		dashboardPage.bankandCashMenue();
-	}
-
-	@And("^User clicks on newAccount$")
-	public void User_clicks_on_newAccount() {
-
-		dashboardPage.addNewAccount();
-
-	}
-
-	@And("^User enters accountTitle as \"([^\"]*)\" in accounts page$")  
-	public void user_enters_title_in_accounts_page(String title) {
-
-		dashboardPage.fillTheAcoountTiltle(title);
-	}
-
-	@And("^User enters description as \"([^\"]*)\"in accounts page$")
-	public void user_enters_description_in_accounts_page(String description) { 
-
-		dashboardPage.insertTheDiscription(description);
-	}
-
-	@And("^User enters initialBalance as \"([^\"]*)\"in accounts page$")
-	public void user_enters_initialBalance_in_accounts_page(String initialBalance) {
-
-		dashboardPage.enterInitialBalance(initialBalance);
-	}
-	@And("^User enters accountNumber as \"([^\"]*)\"in accounts page$")
-	public void user_enters_accountNumber_in_accounts_page(String account) {
-		dashboardPage.insertAccountNumber(account);
-	}
-	@And("^User enters contactPerson as \"([^\"]*)\"in accounts page$")
-	public void user_enters_contactPerson_in_accounts_page(String contact) {
-		dashboardPage.insertContactInfo(contact);
-	}
-	@And("^User enters Phone as\"([^\"]*)\"in accounts page$")
-	public void user_enters_Phone_in_accounts_page(String phone) {
-		dashboardPage.insertPhoneNumber(phone);
-	}
-	@And("^User enters internetBankingURL as \"([^\"]*)\"in accounts page$")
-	public void user_enters_internetBankingURL_in_accounts_page(String URL) {
-		dashboardPage.internetBankingURL(URL);
+		String text = driver.findElement(By.xpath("//button[contains (text() , 'Set SkyBlue Background')]")).getText();
 		
-		try {
-			Thread.sleep(5000);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+		// to check that the page has button calls Set SkyBlue Background
+		if (driver.getPageSource().contains("Set SkyBlue Background")) 
+																		
+		{
+			System.out.println("The Background button: " + text + " exists"); // if the button exist print that in a
+																				// console
+		} else
+			System.out.println("The Background button: " + text + " does not exists");
+	}
+	
+
+	@When("^I click on the button$")
+	public void click_on_the_button() {
+		mainpage = PageFactory.initElements(driver, mainPage.class);
+		mainpage.click_skyBlue();
+		mainpage.click_White_Button();
+	}
+
+	@Then("^the background color will change to sky blue$")
+	public void background_color_will_change_to_sky_blue() {
+	
+
+		WebElement button_color = driver.findElement(By.xpath("//button[contains (text() , 'Set SkyBlue Background')]"));
+		button_color.click();
+		boolean status = button_color.isDisplayed();
+
+		if (status) {
+			System.out.println(status + ":" + " " + "color has been changed to skyBlue");
+		} else {
+			System.out.println(status + ":" + " " + "color had not chang to skyBlue");
 		}
 	}
-	
-	@And("^User clicks on submit$")
-	public void user_clicks_on_submit() {
-		
-		dashboardPage.submit_button();
+
+	@Given("^Set SkyWhite Background button exists$")
+	public void set_SkyWhite_Background_button_exists() {
+
+		String text = driver.findElement(By.xpath("//button[contains (text() , 'Set White Background')]")).getText();
+		//
+		if (driver.getPageSource().contains("Set White Background")) // to check that the page has the background
+																		// button
+		{
+			System.out.println("The Background button: " + text + " exists."); // if the button exist print that in a
+																				// console
+		} else
+			System.out.println("The Background button: " + text + " does not   exists.");
+	}
+
+	@Then("^the background color will change to white$")
+	public void the_background_color_will_change_to_white() throws InterruptedException {
+
+		WebElement button_color = driver.findElement(By.xpath("//button[contains (text() , 'Set White Background')]"));
+		button_color.click();
+		boolean status = button_color.isDisplayed();
+
+		if (status) {
+			System.out.println(status + ":" + " " + "color has been changed to White");
+		} else {
+			System.out.println(status + ":" + " " + "color had not chang to White");
 		
 	}
-//	@Then("^User should validate account created successfully$")
-//	public void account_created_successfully(String message) {	
-//		
-//	}
-	
-	
-//	public void tearDown() {
-//		driver.close();
-//		driver.quit();
-//	}
+		Thread.sleep(3000);
+	}
 
-}
+
+	public void tearDown() {
+		driver.close();
+		driver.quit();
+	}}

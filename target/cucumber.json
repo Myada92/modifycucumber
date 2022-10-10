@@ -6,7 +6,7 @@
         "before": [
           {
             "result": {
-              "duration": 4984537800,
+              "duration": 2356592200,
               "status": "passed"
             },
             "match": {
@@ -14,296 +14,118 @@
             }
           }
         ],
-        "line": 26,
-        "name": "User should be able to login with valid credentials and open a new account",
+        "line": 6,
+        "name": "1  Sky Blue Background",
         "description": "",
-        "id": "techfios-bank-and-cash-new-account-functionality;user-should-be-able-to-login-with-valid-credentials-and-open-a-new-account;;2",
+        "id": "check-sky-color;1--sky-blue-background",
         "type": "scenario",
-        "keyword": "Scenario Outline",
+        "keyword": "Scenario",
         "steps": [
           {
             "result": {
-              "duration": 233614800,
+              "duration": 155484100,
               "status": "passed"
             },
-            "line": 6,
-            "name": "User is on techfios login page",
+            "line": 7,
+            "name": "Set SkyBlue Background button exists",
             "match": {
-              "location": "LoginStepDefinition.user_is_on_techfios_login_page()"
+              "location": "LoginStepDefinition.buttons_exist()"
             },
             "keyword": "Given "
           },
           {
             "result": {
-              "duration": 287920000,
-              "status": "passed"
-            },
-            "line": 7,
-            "name": "User enters username as \"demo@techfios.com\"",
-            "match": {
-              "arguments": [
-                {
-                  "val": "demo@techfios.com",
-                  "offset": 25
-                }
-              ],
-              "location": "LoginStepDefinition.User_enters_username(String)"
-            },
-            "matchedColumns": [
-              0
-            ],
-            "keyword": "When "
-          },
-          {
-            "result": {
-              "duration": 221211000,
+              "duration": 121301800,
               "status": "passed"
             },
             "line": 8,
-            "name": "User enters password as \"abc123\"",
+            "name": "I click on the button",
             "match": {
-              "arguments": [
-                {
-                  "val": "abc123",
-                  "offset": 25
-                }
-              ],
-              "location": "LoginStepDefinition.Userenterspasswordas(String)"
+              "location": "LoginStepDefinition.click_on_the_button()"
             },
-            "matchedColumns": [
-              1
-            ],
             "keyword": "When "
           },
           {
             "result": {
-              "duration": 1175870100,
+              "duration": 78044300,
               "status": "passed"
             },
             "line": 9,
-            "name": "User clicks on signin button",
+            "name": "the background color will change to sky blue",
             "match": {
-              "location": "LoginStepDefinition.user_clicks_on_signin_button()"
-            },
-            "keyword": "And "
-          },
-          {
-            "result": {
-              "duration": 53892000,
-              "status": "passed"
-            },
-            "line": 10,
-            "name": "User land on Dashboard page",
-            "match": {
-              "location": "LoginStepDefinition.User_should_land_on_Dashboard_page()"
+              "location": "LoginStepDefinition.background_color_will_change_to_sky_blue()"
             },
             "keyword": "Then "
-          },
+          }
+        ]
+      },
+      {
+        "before": [
           {
             "result": {
-              "duration": 127321200,
+              "duration": 1708816700,
               "status": "passed"
             },
-            "line": 11,
-            "name": "User shoulld clicks on bankCash",
             "match": {
-              "location": "LoginStepDefinition.User_clicks_on_bank_Cash()"
-            },
-            "keyword": "And "
-          },
+              "location": "LoginStepDefinition.setup()"
+            }
+          }
+        ],
+        "line": 11,
+        "name": "2 White Background Change",
+        "description": "",
+        "id": "check-sky-color;2-white-background-change",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
           {
             "result": {
-              "duration": 954858500,
+              "duration": 80847700,
               "status": "passed"
             },
             "line": 12,
-            "name": "User clicks on newAccount",
+            "name": "Set SkyWhite Background button exists",
             "match": {
-              "location": "LoginStepDefinition.User_clicks_on_newAccount()"
+              "location": "LoginStepDefinition.set_SkyWhite_Background_button_exists()"
             },
-            "keyword": "And "
+            "keyword": "Given "
           },
           {
             "result": {
-              "duration": 183469400,
+              "duration": 95024600,
               "status": "passed"
             },
             "line": 13,
-            "name": "User enters accountTitle as \"Myada Saving for testing perpuse\" in accounts page",
+            "name": "I click on the button",
             "match": {
-              "arguments": [
-                {
-                  "val": "Myada Saving for testing perpuse",
-                  "offset": 29
-                }
-              ],
-              "location": "LoginStepDefinition.user_enters_title_in_accounts_page(String)"
+              "location": "LoginStepDefinition.click_on_the_button()"
             },
-            "matchedColumns": [
-              2
-            ],
-            "keyword": "And "
+            "keyword": "When "
           },
           {
             "result": {
-              "duration": 138140200,
+              "duration": 3076195200,
               "status": "passed"
             },
             "line": 14,
-            "name": "User enters description as \"new account\"in accounts page",
+            "name": "the background color will change to white",
             "match": {
-              "arguments": [
-                {
-                  "val": "new account",
-                  "offset": 28
-                }
-              ],
-              "location": "LoginStepDefinition.user_enters_description_in_accounts_page(String)"
+              "location": "LoginStepDefinition.the_background_color_will_change_to_white()"
             },
-            "matchedColumns": [
-              3
-            ],
-            "keyword": "And "
-          },
-          {
-            "result": {
-              "duration": 172914700,
-              "status": "passed"
-            },
-            "line": 15,
-            "name": "User enters initialBalance as \"1300\"in accounts page",
-            "match": {
-              "arguments": [
-                {
-                  "val": "1300",
-                  "offset": 31
-                }
-              ],
-              "location": "LoginStepDefinition.user_enters_initialBalance_in_accounts_page(String)"
-            },
-            "matchedColumns": [
-              4
-            ],
-            "keyword": "And "
-          },
-          {
-            "result": {
-              "duration": 243008000,
-              "status": "passed"
-            },
-            "line": 16,
-            "name": "User enters accountNumber as \"71433333\"in accounts page",
-            "match": {
-              "arguments": [
-                {
-                  "val": "71433333",
-                  "offset": 30
-                }
-              ],
-              "location": "LoginStepDefinition.user_enters_accountNumber_in_accounts_page(String)"
-            },
-            "matchedColumns": [
-              5
-            ],
-            "keyword": "And "
-          },
-          {
-            "result": {
-              "duration": 219716800,
-              "status": "passed"
-            },
-            "line": 17,
-            "name": "User enters contactPerson as \"Mia\"in accounts page",
-            "match": {
-              "arguments": [
-                {
-                  "val": "Mia",
-                  "offset": 30
-                }
-              ],
-              "location": "LoginStepDefinition.user_enters_contactPerson_in_accounts_page(String)"
-            },
-            "matchedColumns": [
-              6
-            ],
-            "keyword": "And "
-          },
-          {
-            "result": {
-              "duration": 240095100,
-              "status": "passed"
-            },
-            "line": 18,
-            "name": "User enters Phone as\"2671254787\"in accounts page",
-            "match": {
-              "arguments": [
-                {
-                  "val": "2671254787",
-                  "offset": 21
-                }
-              ],
-              "location": "LoginStepDefinition.user_enters_Phone_in_accounts_page(String)"
-            },
-            "matchedColumns": [
-              7
-            ],
-            "keyword": "And "
-          },
-          {
-            "result": {
-              "duration": 5105282500,
-              "status": "passed"
-            },
-            "line": 19,
-            "name": "User enters internetBankingURL as \"www.techfios.com\"in accounts page",
-            "match": {
-              "arguments": [
-                {
-                  "val": "www.techfios.com",
-                  "offset": 35
-                }
-              ],
-              "location": "LoginStepDefinition.user_enters_internetBankingURL_in_accounts_page(String)"
-            },
-            "matchedColumns": [
-              8
-            ],
-            "keyword": "And "
-          },
-          {
-            "result": {
-              "duration": 1106771400,
-              "status": "passed"
-            },
-            "line": 20,
-            "name": "User clicks on submit",
-            "match": {
-              "location": "LoginStepDefinition.user_clicks_on_submit()"
-            },
-            "keyword": "And "
-          }
-        ],
-        "tags": [
-          {
-            "line": 4,
-            "name": "@Scenario:1"
-          },
-          {
-            "line": 1,
-            "name": "@HomeworkLoginfeature"
+            "keyword": "Then "
           }
         ]
       }
     ],
-    "name": "Techfios bank and cash New Account Functionality",
-    "description": "",
-    "id": "techfios-bank-and-cash-new-account-functionality",
+    "name": "check sky color",
+    "description": "\r\nbackground : Given User is on techfios test page",
+    "id": "check-sky-color",
     "keyword": "Feature",
-    "uri": "features/Homework.feature",
+    "uri": "features/final.feature",
     "tags": [
       {
         "line": 1,
-        "name": "@HomeworkLoginfeature"
+        "name": "@FinalExam"
       }
     ]
   }
